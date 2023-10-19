@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+@model WeatherForecastModel
+
+
+@*
+   Date
+   Temprature
+   Cloudy,Rainy
+*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Days.Count-Day Weather Forecast</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>3
+    <h2>@ViewData["Hello"]</h2>
+    <h2>@ViewBag.Hello2</h2>
+    <div class="forecast-container">
+        <h1>@Model.Days.Count-Day Weather Forecast</h1>
+
+        @foreach(WeatherForecastDayModel item in Model.Days)
+        {
+            <div class="forecast-day">
+                <h2>@item.Date.ToString("yyyy-MM-dd")</h2>
+                <img src="~/icons/@item.Icon" alt="Weather Icon">
+                <p></p>
+                <p><strong>Temp:</strong> <span></span>@item.Temprature.ToString("00") °C</p>
+            </div>
+        }
+    </div>
+</body>
+</html>

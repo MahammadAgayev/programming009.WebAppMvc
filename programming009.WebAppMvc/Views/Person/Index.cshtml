@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+@model PersonModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="~/css/person-styles.css">
+</head>
+<body>
+
+    @if (ViewBag.Message != null)
+    {
+        <h3>@ViewBag.Message</h3>
+    }
+
+    <div class="register-container">
+        <h2>Register</h2>
+        <form asp-controller="Person" asp-action="SavePerson">
+            <label> Name:</label>
+            <input asp-for=Name type="text">
+
+            <label> Surname:</label>
+            <input asp-for=Surname type="text">
+
+            <label for="birthdate">Birthdate:</label>
+            <input asp-for=BirthDate type="date" >
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

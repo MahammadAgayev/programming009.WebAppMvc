@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+
+
+@for (int i = 0; i < 100; i++)
+{
+    @if (i % 2 == 0)
+    {
+        <h2 style="color:rebeccapurple">@i</h2>
+    }
+    else
+    {
+        <h2 style="color:red">@i</h2>
+    }
+}
