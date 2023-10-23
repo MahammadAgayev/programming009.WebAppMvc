@@ -15,12 +15,11 @@ namespace programming009.WebAppMvc.Controllers
      *   |         |  --->  | |         |
      *   |         |  POST  | |         |
      *   +---------+          +---------+
-     *                    
+     *   client                 Server
      *   
-     *   
+     *  client side            s erver side   
+     *  validation              validation
      */
-
-
     public class PersonController : Controller
     {
         [TempData]
@@ -36,7 +35,21 @@ namespace programming009.WebAppMvc.Controllers
         [HttpPost]
         public IActionResult SavePerson(PersonModel model)
         {
+            //server side validation
+            if (ModelState.IsValid == false)
+            {
+                return View("Index", model);
+            }
+
+            //bool result = Validate(model);
+
+            //if (result == false)
+            //{
+            //    return View("Index", model);
+            //}
+
             Message = $"{model.Name} succesfully saved";
+
             return RedirectToAction("Index");
         }
     }

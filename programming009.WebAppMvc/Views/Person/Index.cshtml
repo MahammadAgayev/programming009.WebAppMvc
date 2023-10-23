@@ -24,15 +24,39 @@
         <form asp-controller="Person" asp-action="SavePerson">
             <label> Name:</label>
             <input asp-for=Name type="text">
+            <span class="text-danger" asp-validation-for="Name"></span>
 
             <label> Surname:</label>
             <input asp-for=Surname type="text">
+            <span class="text-danger" asp-validation-for="Surname"></span>
 
             <label for="birthdate">Birthdate:</label>
-            <input asp-for=BirthDate type="date" >
+            <input asp-for=BirthDate>
+            <span class="text-danger" asp-validation-for="BirthDate"></span>
+
+            <label> Email:</label>
+            <input asp-for=Email type="text">
+            <span class="text-danger" asp-validation-for="Email"></span>
+
+
+            <label> Password:</label>
+            <input asp-for=Password type="text">
+            <span class="text-danger" asp-validation-for="Password"></span>
+
+            <label> Rating:</label>
+            <input asp-for=Rating type="text">
+            <span class="text-danger" asp-validation-for="Rating"></span>
 
             <input type="submit" value="Register">
         </form>
     </div>
+
+    @*if layout is used no need for next 3 line*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    <partial name="_ValidationScriptsPartial"></partial>
 </body>
 </html>
